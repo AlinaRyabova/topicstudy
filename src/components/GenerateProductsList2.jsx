@@ -1,17 +1,16 @@
+import { Wrapper, Title } from './Wrapper.styled';
+
 const GenerateProductsList2 = props => {
-  const { data, children } = props;
+  const { data } = props;
   return data.map(product => (
-    <div className="card" key={product.id} style={{ width: '18rem' }}>
-      <img src={product.thumbnail} className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">{product.title}</h5>
-        <p className="card-text">{product.description}</p>
-        <a href="_" className="btn btn-primary">
-          {product.price}
-        </a>
-        {children}
+    <Wrapper key={product.id}>
+      <img src={product.thumbnail} alt="..." />
+      <div>
+        <Title>{product.title}</Title>
+        <p>{product.description}</p>
+        <a href="_">{product.price}</a>
       </div>
-    </div>
+    </Wrapper>
   ));
 };
 export default GenerateProductsList2;
